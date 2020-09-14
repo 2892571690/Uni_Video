@@ -1,16 +1,91 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/index/index",
+			"path": "pages/home/home",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "首页"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/horizontal/horizontal",
+            "style" : {
+				"navigationBarTitleText": "横屏"
+			}
+        }
+        ,{
+            "path" : "pages/video/video",
+            "style" : {
+				"navigationBarTitleText": "精美视频"
+			}
+        }
+        ,{
+            "path" : "pages/search/search",
+            "style" : {
+				"navigationBarTitleText": "搜索"
+			}
+        }
+        ,{
+            "path" : "pages/mine/mine",
+            "style" : {
+				"navigationBarTitleText": "我的"
+			}
+        }
+        ,{
+            "path" : "pages/home/home-recommend/home-recommend",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/home/home-category/home-category",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/home/home-new/home-new",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/home/home-album/home-album",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "懂你找图",
+		"navigationBarBackgroundColor": "#000"
+	},
+	"tabBar":{
+		"color":"#707070",
+		"selectedColor":"#d81e06",
+		"list":[
+			{
+				"text":"首页",
+				"pagePath":"pages/home/home",
+				"iconPath":"static/img/home.png",
+				"selectedIconPath":"static/img/home_active.png"
+			},
+			{
+				"text":"横屏",
+				"pagePath":"pages/horizontal/horizontal",
+				"iconPath":"static/img/pic.png",
+				"selectedIconPath":"static/img/pic_active.png"
+			},
+			{
+				"text":"精美视频",
+				"pagePath":"pages/video/video",
+				"iconPath":"static/img/video.png",
+				"selectedIconPath":"static/img/video_active.png"
+			},
+			{
+				"text":"搜索",
+				"pagePath":"pages/search/search",
+				"iconPath":"static/img/search.png",
+				"selectedIconPath":"static/img/search_video.png"
+			},
+			{
+				"text":"首页",
+				"pagePath":"pages/mine/mine",
+				"iconPath":"static/img/my.png",
+				"selectedIconPath":"static/img/my_active.png"
+			}
+		]
 	}
 }
