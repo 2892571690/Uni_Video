@@ -8,7 +8,13 @@
     "pages/home/home-recommend/home-recommend",
     "pages/home/home-category/home-category",
     "pages/home/home-new/home-new",
-    "pages/home/home-album/home-album"
+    "pages/home/home-album/home-album",
+    "pages/ablum/ablum",
+    "pages/imgDetail/imgDetail",
+    "pages/imgCategory/imgCategory",
+    "pages/video/video-category/video-category",
+    "pages/video/video-main/video-main",
+    "pages/videoPlay/videoPlay"
   ],
   "subPackages": [],
   "window": {

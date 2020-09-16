@@ -35,6 +35,7 @@
           flex-wrap: wrap;
 }
 .recommend .recommend_wrap .recommend_item {
+  box-sizing: border-box;
   width: 50%;
   border: 5rpx solid #fff;
 }

@@ -46,6 +46,34 @@
             "path" : "pages/home/home-album/home-album",
             "style" : {}
         }
+        ,{
+            "path" : "pages/ablum/ablum",
+            "style" : {
+				"navigationBarTitleText": "专辑详情"
+			}
+        }
+        ,{
+            "path" : "pages/imgDetail/imgDetail",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/imgCategory/imgCategory",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/video/video-category/video-category",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/video/video-main/video-main",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/videoPlay/videoPlay",
+            "style" : {
+				"navigationBarTitleText": "视频播放"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

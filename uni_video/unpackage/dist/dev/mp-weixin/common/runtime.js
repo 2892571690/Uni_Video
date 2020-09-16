@@ -109,7 +109,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"node-modules/@dcloudio/uni-ui/lib/uni-segmented-control/uni-segmented-control":"node-modules/@dcloudio/uni-ui/lib/uni-segmented-control/uni-segmented-control"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/goDetail":"components/goDetail","node-modules/@dcloudio/uni-ui/lib/uni-segmented-control/uni-segmented-control":"node-modules/@dcloudio/uni-ui/lib/uni-segmented-control/uni-segmented-control","components/swiperActive":"components/swiperActive"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

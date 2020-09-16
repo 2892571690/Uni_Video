@@ -2,7 +2,9 @@
 	<scroll-view scroll-y @scrolltolower="_handleGoBottom" class="recommend" v-if="recommendList.length > 0">
 		<!-- 推荐开始 -->
 		<view class="recommend_wrap">
-			<view class="recommend_item" v-for="item in recommendList" :key="item.id"><image mode="widthFix" :src="item.thumb"></image></view>
+			<navigator :url="`/pages/ablum/ablum?id=${item.target}`" class="recommend_item" v-for="item in recommendList" :key="item.id">
+				<image mode="widthFix" :src="item.thumb"></image>
+			</navigator>
 		</view>
 		<!-- 推荐结束 -->
 
@@ -19,8 +21,8 @@
 				<view class="monenths_title_more">更多></view>
 			</view>
 			<view class="monenths_content">
-				<view class="monenths_item" v-for="item in monthes.items" :key="item.id">
-					<image mode="aspectFill" :src="item.thumb + item.rule.replace('$<Height>', 360)"></image>
+				<view class="monenths_item" v-for="(item,index) in monthes.items" :key="item.id">
+					<goDetail :list="monthes.items" :index="index"><image mode="aspectFill" :src="item.thumb + item.rule.replace('$<Height>', 360)"></image></goDetail>
 				</view>
 			</view>
 		</view>
@@ -30,7 +32,11 @@
 		<view class="hots_wrap">
 			<view class="hots_title"><text>热门</text></view>
 			<view class="hots_content">
-				<view class="hots_item" v-for="item in hostList" :key="item.id"><image mode="widthFix" :src="item.thumb"></image></view>
+				<view class="hots_item" v-for="(item,index) in hostList" :key="item.id">
+					<goDetail :list="hostList" :index="index">
+						<image mode="widthFix" :src="item.thumb"></image>
+					</goDetail>
+				</view>
 			</view>
 		</view>
 		<!-- 热门结束 -->
@@ -39,7 +45,11 @@
 
 <script>
 import moment from 'moment';
+import goDetail from '../../../components/goDetail.vue';
 export default {
+	components: {
+		goDetail
+	},
 	data() {
 		return {
 			// 推荐列表
@@ -58,10 +68,11 @@ export default {
 				skip: 0
 			},
 			// 是否加载完
-			hasMore:true
+			hasMore: true
 		};
 	},
 	created() {
+		// uni.setNavigationBarTitle({title:'首页'})
 		this.getRecommendList();
 	},
 	methods: {
@@ -71,14 +82,18 @@ export default {
 				url: '/image/v3/homepage/vertical',
 				data: this.params
 			});
-			
-			
+			// console.log(res)
+
 			// 判断还有没有下一页数据
-			if(res.res.vertical.length === 0){
-				this.hasMore = false
-				return
+			if (res.res.vertical.length === 0) {
+				this.hasMore = false;
+				uni.showToast({
+					title: '没有数据了...',
+					icon: 'none'
+				});
+				return;
 			}
-			
+
 			// 第一次发送请求
 			if (this.recommendList.length === 0) {
 				// 推荐模块
@@ -95,16 +110,15 @@ export default {
 		},
 		// 滚动区域到底事件
 		_handleGoBottom() {
-			if(this.hasMore){
+			if (this.hasMore) {
 				this.params.skip += this.params.limit;
 				this.getRecommendList();
-			}else{
+			} else {
 				uni.showToast({
-					title:"我已经到底了哦~",
-					icon:'none'
-				})
+					title: '我已经到底了哦~',
+					icon: 'none'
+				});
 			}
-			
 		}
 	}
 };
@@ -117,6 +131,7 @@ export default {
 		display: flex;
 		flex-wrap: wrap;
 		.recommend_item {
+			box-sizing: border-box;
 			width: 50%;
 			border: 5rpx solid #fff;
 			image {
